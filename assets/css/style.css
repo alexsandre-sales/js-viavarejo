@@ -6,26 +6,26 @@
   font-family: Lato, sans-serif;
   outline: none;
 }
+
 header {
   background-color: #e0e0e0;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
   height: 60px;
-  font-size: 1rem;
 }
 
 .img-logo {
   width: 30px;
-  margin-left: 3%;
+  margin-left: 20px;
 }
 
 nav h2 {
-  font-size: 1.25rem;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -33,19 +33,56 @@ nav h2 {
   display: none;
 }
 
+.menu-mobile {
+  /* display: block; */
+  position: absolute;
+  width: 85%;
+  height: 100vh;
+  background-color: #333;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.menu-mobile li {
+  text-align: end;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+.menu-mobile li:first-child {
+  margin: 20px 0 26px;
+  list-style: none;
+}
+
+.menu-mobile .close {
+  display: flex;
+  cursor: pointer;
+}
+
+.menu-mobile li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-mobile li:hover:not(:first-child) {
+  cursor: pointer;
+  background-color: #c4c4c4;
+  color: #333;
+}
+
 .img-menu {
   width: 24px;
-  margin-right: 2%;
+  margin-right: 20px;
 }
 
 .section {
   max-width: 1100px;
-  width: 95%;
-  margin: 26px auto 0 auto;
+  margin: 26px 20px 0 20px;
 }
 
 .title-form {
-  display: hidden;
+  display: none;
 }
 
 .form {
@@ -54,9 +91,9 @@ nav h2 {
 }
 
 .form label {
-  margin: 0 0 4px 0;
-  font-size: 0.87rem;
-  line-height: 1.37rem;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .form select,
@@ -67,14 +104,16 @@ nav h2 {
   padding: 5px;
   color: #979797;
 
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }
 
-button {
+.button {
   width: 100%;
   height: 33px;
   background-color: #333;
   color: #fff;
+  font-size: 14px;
+  font-weight: 400;
   border-radius: 4px;
   border: none;
 
@@ -93,77 +132,75 @@ hr {
 
 .section-transactions h2 {
   text-align: center;
-  font-size: 1.12rem;
-  font-weight: bold;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
 }
 
-thead tr th {
-  border-top: hidden;
-  border-left: hidden;
-  border-right: hidden;
+th,
+td {
+  border-bottom: 1px solid #979797;
 }
 
-thead tr th:first-child {
+tr td:first-child {
+  padding: 0 11px 0 10px;
+}
+
+thead th:nth-child(2) {
   text-align: left;
-  padding-left: 31px;
+  padding-bottom: 5px;
+}
+
+.text-standard,
+.text-standard-bold {
+  font-size: 14px;
 }
 
 tbody tr td {
-  border-left: hidden;
-  border-right: hidden;
-  border-bottom: 1px solid #979797;
-
-  padding: 11px;
+  padding: 11px 10px 11px 0;
 }
 
-tbody tr td:nth-child(2) {
+tbody tr td:nth-child(1) {
+  text-align: center;
+}
+
+tbody tr td:nth-child(3) {
+  width: 30%;
   text-align: end;
 }
 
-tbody tr:last-child {
+tbody tr:nth-child(4) {
   border-bottom: hidden;
+  border-top: 3px double #979797;
+  vertical-align: top;
 }
 
-.text-standard-bold {
-  font-size: 0.87rem;
-}
-
-.text-standard {
-  font-size: 0.87rem;
-}
-
-.positive::before {
-  content: '+';
-  margin-right: 11px;
-}
-
-.negative::before {
-  content: '-';
-  margin-right: 11px;
+.positive {
+  width: 65%;
 }
 
 .tr-total {
+  width: 100%;
   font-weight: bold;
 }
 
-.space::before {
-  content: ' ';
-  margin-right: 21px;
-}
-
-.profit::after {
-  content: '[LUCRO]';
-  display: inline-block;
-  font-size: 0.62rem;
+.profit span {
+  font-size: 10px;
+  font-weight: 400;
+  position: absolute;
+  right: 30px;
+  bottom: 120px;
 }
 
 @media (min-width: 768px) {
+  .menu-mobile {
+    /* display: block; */
+    width: 33%;
+  }
   form {
     height: 189px;
     display: flex;
@@ -175,23 +212,23 @@ tbody tr:last-child {
   }
 
   .title-form {
-    font-size: 1.12rem;
-    margin-top: 20px;
+    display: inline-block;
+    font-size: 18px;
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
   }
 
   .form:nth-child(even) {
-    width: 150px;
+    width: 22%;
   }
 
   .form:nth-child(3) {
-    width: 348px;
+    width: 50%;
   }
 
-  button {
+  .button {
     width: 200px;
     height: 33px;
     margin: 20px;
@@ -202,29 +239,49 @@ tbody tr:last-child {
     right: 0;
   }
 
+  hr {
+    display: none;
+  }
+
   thead tr th:last-child {
     text-align: end;
+    padding-right: 20px;
+  }
+
+  tbody tr td {
+    padding-right: 20px;
   }
 
   .profit {
     position: relative;
   }
 
-  .profit::after {
-    content: '[LUCRO]';
-    position: absolute;
+  .profit span {
+    right: 20px;
     bottom: 0;
-    right: 10px;
-    font-size: 0.62rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .img-logo {
-    margin-right: -380px;
+  nav h2 {
+    text-align: left;
+    margin-left: 20px;
   }
+
+  .menu-mobile {
+    position: initial;
+    width: initial;
+    height: initial;
+  }
+
+  .menu-mobile li {
+    padding: initial;
+  }
+
   nav .menus {
     display: flex;
+    justify-content: flex-end;
+    min-width: 342px;
     margin: 0 20px;
     background-color: #fff;
   }
@@ -233,23 +290,34 @@ tbody tr:last-child {
     margin: 10px 20px 10px 0;
   }
 
+  .menus li a {
+    color: #333;
+  }
+
   .menus li:first-child {
+    display: none;
+  }
+
+  .menus li:nth-child(2) {
     margin-left: 20px;
   }
 
-  .menus li:first-child::after {
+  .menus li:nth-child(2)::after {
     content: '';
     border-right: 1px solid red;
     margin-left: 20px;
   }
-
   .img-menu {
     display: none;
   }
 
   main {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  .section {
+    margin: 26px 0;
   }
 
   .section-left {
@@ -257,11 +325,8 @@ tbody tr:last-child {
   }
 
   .section-right {
-    margin-right: 20px;
-  }
-
-  .section-transactions {
-    width: 565px;
+    width: 100%;
+    padding: 26px 20px;
   }
 
   hr {
@@ -281,7 +346,11 @@ tbody tr:last-child {
     margin-bottom: 20px;
   }
 
-  button {
+  .form label {
+    width: 130px;
+  }
+
+  .button {
     width: 358px;
     bottom: -5px;
   }
@@ -290,7 +359,7 @@ tbody tr:last-child {
 @media (min-width: 1100px) {
   nav,
   main {
-    width: 1100px;
+    max-width: 1100px;
     margin: auto;
   }
 }

@@ -22,9 +22,10 @@
           alt="logo da empresa"
         />
         <h2>Controle financeiro</h2>
-        <ul class="menus">
-          <li>Cadastro de transações</li>
-          <li>Limpar Dados</li>
+        <ul class="menus menu-mobile">
+          <li><img class="close" src="assets/icons/close.svg" /></li>
+          <li><a href="#">Cadastro de transações</a></li>
+          <li><a href="#">Limpar Dados</a></li>
         </ul>
         <img class="img-menu" src="assets/icons/menu.svg" alt="icone do menu" />
       </nav>
@@ -33,7 +34,7 @@
     <main>
       <section class="section section-left">
         <div>
-          <form>
+          <form id="formMercadoria">
             <h2 class="title-form">Nova transação</h2>
             <div class="form form-buy">
               <label for="type">Tipo de transação</label>
@@ -44,15 +45,27 @@
             </div>
 
             <div class="form form-buy-name">
-              <label>Nome da mercadoria</label>
-              <input type="text" placeholder="Mercadoria" />
+              <label for="nomeMercadoria">Nome da mercadoria</label>
+              <input
+                id="nomeMercadoria"
+                type="text"
+                placeholder="Mercadoria"
+                minlength="3"
+                required
+              />
             </div>
 
             <div class="form form-buy-price">
-              <label>Valor</label>
-              <input type="text" placeholder="R$ 0,00" />
+              <label for="valor">Valor</label>
+              <input
+                id="valor"
+                type="text"
+                placeholder="R$ 0,00"
+                required
+                min="0.01"
+              />
             </div>
-            <button>Adicionar transação</button>
+            <input class="button" type="submit" value="Adicionar transação" />
           </form>
         </div>
         <hr />
@@ -60,35 +73,42 @@
 
       <section class="section section-right">
         <div class="section-transactions">
-          <h2>Extrato de transação</h2>
-          <table border="1">
-            <thead class="text-standard-bold">
+          <h2>Extrato de transações</h2>
+          <table>
+            <thead class="thead text-standard-bold">
               <tr>
+                <th></th>
                 <th>Mercadoria</th>
                 <th>Valor</th>
               </tr>
             </thead>
+
             <tbody class="text-standard">
               <tr>
+                <td>+</td>
                 <td class="positive">Lorem ipsum dolor sit amet consectetur</td>
                 <td>R$12.999,99</td>
               </tr>
               <tr>
+                <td>-</td>
                 <td class="negative">Quis nostrud exercitation</td>
                 <td>R$99,99</td>
               </tr>
               <tr>
+                <td>+</td>
                 <td class="positive">Lorem ipsum</td>
                 <td>R$9,99</td>
               </tr>
               <tr class="tr-total">
+                <td></td>
                 <td class="space">Total</td>
-                <td class="profit">R$12.909,99</td>
+                <td class="profit">R$12.909,99 <span>[LUCRO]</span></td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
     </main>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
